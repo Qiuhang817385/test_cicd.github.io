@@ -27,7 +27,7 @@ export const createVMind = () => {
       url: 'https://api.deepseek.com/v1',
       model: Model.DEEPSEEK_V3,
       headers: {
-        'api-key': 'sk-ac7d932d3703410793fab75cca903020',
+        'api-key': 'API_KEY',
       },
     })
   } catch (error) {
