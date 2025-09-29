@@ -4,11 +4,12 @@ import { prisma } from '@/lib/prisma'
 // GET /api/posts/[id] - 获取单个文章
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const post = await prisma.posts.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         author: true,
       },
@@ -37,14 +38,15 @@ export async function GET(
 // PUT /api/posts/[id] - 更新文章
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
     const { title, content, published } = body
 
     const post = await prisma.posts.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         ...(title && { title }),
         ...(content !== undefined && { content }),
@@ -82,11 +84,12 @@ export async function PUT(
 // DELETE /api/posts/[id] - 删除文章
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     await prisma.post.delete({
-      where: { id: params.id },
+      where: { id },
     })
 
     return NextResponse.json({

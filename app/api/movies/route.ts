@@ -109,7 +109,7 @@ export async function POST() {
 
     // 处理类型统计
     const genreCount: Record<string, number> = {}
-    genreStats.forEach((movie) => {
+    genreStats.forEach((movie: any) => {
       if (movie.genres && Array.isArray(movie.genres)) {
         movie.genres.forEach((genre: string) => {
           genreCount[genre] = (genreCount[genre] || 0) + 1

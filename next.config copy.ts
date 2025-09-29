@@ -1,12 +1,14 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // 移除 output: 'export' 以支持 API 路由
-  // output: 'export', // 与API路由不兼容，已注释
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  // 根据环境变量决定是否静态导出
+  ...(process.env.GITHUB_PAGES === 'true' && {
+    output: 'export',
+    trailingSlash: true,
+    images: {
+      unoptimized: true,
+    },
+  }),
   // 禁用 TypeScript 类型检查
   typescript: {
     ignoreBuildErrors: true,
