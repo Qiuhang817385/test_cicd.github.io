@@ -1,0 +1,13 @@
+/* components/ProductCard.module.css */
+.card  {
+  transition: box-shadow 0.2s;
+  outline: none;
+}
+
+.card:focus  {
+  box-shadow: 0002px#10b981;
+}
+
+.card:hover  {
+  box-shadow: 08px24pxrgba (0, 0, 0, 0.15);
+}

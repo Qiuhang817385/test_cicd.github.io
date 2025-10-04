@@ -12,7 +12,12 @@ async function getData() {
 }
 
 export default async function SettingsPage() {
+  // 如果有异步请求，默认会捕获当前的状态然后使用 loading
   const data = await getData()
+
+  if (Math.random() > 0.5) {
+    throw new Error('加载设置失败！')
+  }
 
   return (
     <div className="flex-1 flex flex-col bg-gray-50">

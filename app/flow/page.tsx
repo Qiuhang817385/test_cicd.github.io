@@ -11,6 +11,7 @@ import {
   Edge,
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
+import AnimatedButton from '@/components/AnimatedButton'
 
 const CustomNode = ({ data }: { data: any }) => (
   <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 min-w-[200px] group">
@@ -95,6 +96,14 @@ export default function UserProfile() {
       {/* 顶部工具栏 */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
+          <AnimatedButton
+            style={{ width: 216 }}
+            onClick={() => {
+              console.log('点击了按钮')
+            }}
+          >
+            点击我
+          </AnimatedButton>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">流程图编辑器</h1>
             <p className="text-sm text-gray-500 mt-1">
