@@ -1,8 +1,14 @@
 import { Button } from '@/components/ui/button'
 import { CustomLink } from '@/components/ui/link'
 import { PageLayout } from '@/components/ui/page-layout'
+import { useEffect } from 'react'
+import { initQiankun } from './qiankun'
 
 export default function Home() {
+  // useEffect(() => {
+  //   initQiankun()
+  // }, [])
+
   return (
     <PageLayout
       title="欢迎来到我的 Next.js"
